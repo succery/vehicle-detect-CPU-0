@@ -120,8 +120,8 @@ def main(_):
                                      shape=[FLAGS.batch_size, image_size,
                                             image_size, 3])
         network_fn(placeholder)
-        graph_def = graph.as_graph_def()
-        with gfile.GFile(FLAGS.output_file, 'wb') as f:
+        graph_def = graph.as_graph_def()  # 获取网络的结构定义
+        with gfile.GFile(FLAGS.output_file, 'wb') as f:  # 打开文件已二进制的文件写入
             f.write(graph_def.SerializeToString())
 
 
